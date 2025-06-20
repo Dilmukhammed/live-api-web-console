@@ -140,20 +140,21 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */ /* REMOVED */
+    /* justify-content: center; */ /* REMOVED */
     flex-grow: 1;
-    gap: 1rem;
+    gap: 1rem; // This will create space between main-app-area and ControlTray
     max-width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */ /* REMOVED */
   }
 
   .main-app-area {
     display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    flex-grow: 1; // Allow it to take up available vertical space
+    overflow-y: auto; // Allow vertical scrolling WITHIN this area
+    min-height: 0; // Important for flex + overflow
+    /* align-items: center; */ /* REMOVED */
+    /* justify-content: center; */ /* REMOVED */
   }
 
   .function-call {

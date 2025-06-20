@@ -7,7 +7,7 @@
   height: 100vh; // Or 100% if preferred and parent context allows
   display: flex;
   flex-direction: column;
-  justify-content:start; // Center tabs vertically
+  justify-content: center; // Center tabs vertically
   // background-color: #f0f0f0; // Removed
   // padding: 10px 5px; // Removed
   // box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Removed
@@ -15,14 +15,13 @@
   box-sizing: border-box; // Include padding and border in the element's total width and height
   // Ensure it does not capture pointer events if it's just a container
   pointer-events: none;
-  padding: 10vh 10px 0 0;
 }
 
 .vertical-tab-button {
-  background-color: var(--Neutral-5); // Make buttons distinct floating elements
+  background-color: #f8f8f8; // Make buttons distinct floating elements
   box-shadow: -1px 1px 3px rgba(0,0,0,0.15); // Pop-out effect
-  border: 1px solid var(--Neutral-30);
-  color: #efefef; // Dark gray text
+  border: none;
+  color: #333; // Dark gray text
   padding: 15px 8px; // Generous padding for clickability and vertical appearance
   margin: 10px 0; // Adjusted spacing between tab buttons
   cursor: pointer;
@@ -33,20 +32,15 @@
   border-radius: 4px 0 0 4px; // Rounded on left, square on right
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; // Smooth transitions
   pointer-events: auto; // Buttons themselves should be interactive
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 0px;
-
 
   &:hover {
-    background-color: var(--Neutral-30); // Lighter hover state
-    color: #efefef;
+    background-color: #efefef; // Lighter hover state
   }
 
   &.active {
-    background-color: #3b3b3b; // Active tab highlight (current is good)
-    color: #efefef; // Black text for active tab for emphasis (current is good)
-    font-weight: 500; // (current is good)
+    background-color: #e0e0e0; // Active tab highlight (current is good)
+    color: #000; // Black text for active tab for emphasis (current is good)
+    font-weight: bold; // (current is good)
     // Optionally, a slightly stronger shadow or border for active state if needed
     // box-shadow: -2px 2px 5px rgba(0,0,0,0.2);
   }
