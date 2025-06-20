@@ -53,7 +53,7 @@ function App() {
       <LiveAPIProvider options={apiOptions}>
         <VerticalTabs activeTab={currentTab} onTabChange={handleTabChange} />
         <div className="streaming-console">
-          <SidePanel />
+          {currentTab === 'Chat' && <SidePanel />} {/* SidePanel moved here */}
           <main>
             <div className="main-app-area">
               {currentTab === 'Chat' && (
