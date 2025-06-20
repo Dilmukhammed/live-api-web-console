@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react'; // useState removed as it's no longer used
 import cn from 'classnames';
 import './VerticalTabs.scss';
 
 // Define the type for tab identifiers
 type TabId = "Library" | "Board" | "Chat";
 
+// Export TabId so parent components can use it
+export type { TabId };
+
 interface VerticalTabsProps {
-  // Props can be added here if needed in the future
+  onTabChange: (tabId: TabId) => void;
+  activeTab: TabId;
 }
 
-const VerticalTabs: React.FC<VerticalTabsProps> = () => {
-  const [activeTab, setActiveTab] = useState<TabId>("Library");
+const VerticalTabs: React.FC<VerticalTabsProps> = ({ activeTab, onTabChange }) => {
+  // Internal activeTab state has been removed.
+  // The component is now controlled by its parent via activeTab and onTabChange props.
 
+  // handleTabClick calls the onTabChange prop passed down from the parent.
   const handleTabClick = (tabId: TabId) => {
-    setActiveTab(tabId);
+    onTabChange(tabId);
   };
 
   return (

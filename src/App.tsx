@@ -20,7 +20,9 @@ import { LiveAPIProvider } from "./contexts/LiveAPIContext";
 import SidePanel from "./components/side-panel/SidePanel";
 import { Altair } from "./components/altair/Altair";
 import ControlTray from "./components/control-tray/ControlTray";
-import VerticalTabs from "./components/vertical-tabs/VerticalTabs"; // Import VerticalTabs
+import VerticalTabs, { TabId } from "./components/vertical-tabs/VerticalTabs"; // Import VerticalTabs and TabId
+import LibraryPage from './components/library-page/LibraryPage'; // Import LibraryPage
+import BoardPage from './components/board-page/BoardPage'; // Import BoardPage
 // import './components/vertical-tabs/VerticalTabs.scss'; // Removed: VerticalTabs.tsx imports its own styles
 import cn from "classnames";
 import { LiveClientOptions } from "./types";
@@ -40,25 +42,35 @@ function App() {
   const videoRef = useRef<HTMLVideoElement>(null);
   // either the screen capture, the video or null, if null we hide it
   const [videoStream, setVideoStream] = useState<MediaStream | null>(null);
+  const [currentTab, setCurrentTab] = useState<TabId>('Chat'); // Default to 'Chat'
+
+  const handleTabChange = (tabId: TabId) => {
+    setCurrentTab(tabId);
+  };
 
   return (
     <div className="App">
       <LiveAPIProvider options={apiOptions}>
-        <VerticalTabs /> {/* Render VerticalTabs here */}
+        <VerticalTabs activeTab={currentTab} onTabChange={handleTabChange} />
         <div className="streaming-console">
           <SidePanel />
           <main>
             <div className="main-app-area">
-              {/* APP goes here */}
-              <Altair />
-              <video
-                className={cn("stream", {
-                  hidden: !videoRef.current || !videoStream,
-                })}
-                ref={videoRef}
-                autoPlay
-                playsInline
-              />
+              {currentTab === 'Chat' && (
+                <>
+                  <Altair />
+                  <video
+                    className={cn("stream", {
+                      hidden: !videoRef.current || !videoStream,
+                    })}
+                    ref={videoRef}
+                    autoPlay
+                    playsInline
+                  />
+                </>
+              )}
+              {currentTab === 'Library' && <LibraryPage />}
+              {currentTab === 'Board' && <BoardPage />}
             </div>
 
             <ControlTray
