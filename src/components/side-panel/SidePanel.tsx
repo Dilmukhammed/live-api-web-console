@@ -37,6 +37,9 @@ export default function SidePanel() {
   const loggerLastHeightRef = useRef<number>(-1);
   const { log, logs } = useLoggerStore();
 
+  type Tab = "Logger" | "Library" | "Board";
+  const [activeTab, setActiveTab] = useState<Tab>("Logger");
+
   const [textInput, setTextInput] = useState("");
   const [selectedOption, setSelectedOption] = useState<{
     value: string;
@@ -87,9 +90,31 @@ export default function SidePanel() {
           </button>
         )}
       </header>
-      <section className="indicators">
-        <Select
-          className="react-select"
+      <div className="tabs">
+        <button
+          className={cn("tab-button", { active: activeTab === "Logger" })}
+          onClick={() => setActiveTab("Logger")}
+        >
+          Logger
+        </button>
+        <button
+          className={cn("tab-button", { active: activeTab === "Library" })}
+          onClick={() => setActiveTab("Library")}
+        >
+          Library
+        </button>
+        <button
+          className={cn("tab-button", { active: activeTab === "Board" })}
+          onClick={() => setActiveTab("Board")}
+        >
+          Board
+        </button>
+      </div>
+      {activeTab === "Logger" && (
+        <>
+          <section className="indicators">
+            <Select
+              className="react-select"
           classNamePrefix="react-select"
           styles={{
             control: (baseStyles) => ({
