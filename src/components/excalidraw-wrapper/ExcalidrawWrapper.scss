@@ -1,0 +1,11 @@
+.excalidraw-wrapper-container {
+  width: 100%;
+  height: 100%; /* This will aim to fill the parent container from BoardPage */
+  display: flex; /* Ensure Excalidraw component itself can take up space if it needs to */
+}
+
+/* Ensure Excalidraw's own container takes full height of our wrapper */
+.excalidraw-wrapper-container .excalidraw {
+  width: 100%;
+  height: 100%;
+}

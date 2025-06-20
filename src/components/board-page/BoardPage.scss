@@ -1,9 +1,7 @@
 .board-page-container {
-  padding: 20px;
-  text-align: center;
-  height: 100%;
+  width: 100%;
+  height: 100%; /* Ensure it takes full height from its parent in App.tsx's main-app-area */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* To make ExcalidrawWrapper take full height */
+  /* Removed padding, text-align, justify-content, and align-items */
 }
