@@ -2,7 +2,7 @@
   "name": "multimodal-live-api-web-console",
   "version": "0.1.0",
   "dependencies": {
-    "@excalidraw/excalidraw": "^0.18.0",
+    "@excalidraw/excalidraw": "^0.17.6",
     "@google/genai": "^0.14.0",
     "classnames": "^2.5.1",
     "dotenv-flow": "^4.1.0",
@@ -14,6 +14,7 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.8.3",
     "react-syntax-highlighter": "^15.6.1",
+    "roughjs": "^4.6.6",
     "sass": "^1.80.6",
     "vega": "^5.30.0",
     "vega-embed": "^6.29.0",
