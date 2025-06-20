@@ -7,7 +7,7 @@
   height: 100vh; // Or 100% if preferred and parent context allows
   display: flex;
   flex-direction: column;
-  justify-content: center; // Center tabs vertically
+  justify-content:start; // Center tabs vertically
   // background-color: #f0f0f0; // Removed
   // padding: 10px 5px; // Removed
   // box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Removed
@@ -15,13 +15,14 @@
   box-sizing: border-box; // Include padding and border in the element's total width and height
   // Ensure it does not capture pointer events if it's just a container
   pointer-events: none;
+  padding: 20px 10px 0 0;
 }
 
 .vertical-tab-button {
-  background-color: #f8f8f8; // Make buttons distinct floating elements
+  background-color: var(--Neutral-5); // Make buttons distinct floating elements
   box-shadow: -1px 1px 3px rgba(0,0,0,0.15); // Pop-out effect
-  border: none;
-  color: #333; // Dark gray text
+  border: 1px solid var(--Neutral-30);
+  color: #efefef; // Dark gray text
   padding: 15px 8px; // Generous padding for clickability and vertical appearance
   margin: 10px 0; // Adjusted spacing between tab buttons
   cursor: pointer;
@@ -32,9 +33,14 @@
   border-radius: 4px 0 0 4px; // Rounded on left, square on right
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; // Smooth transitions
   pointer-events: auto; // Buttons themselves should be interactive
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 0px;
+
 
   &:hover {
     background-color: #efefef; // Lighter hover state
+    color: #000;
   }
 
   &.active {
