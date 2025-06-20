@@ -16,40 +16,7 @@
   line-height: 160%;
   /* 20.8px */
 
-  .tabs {
-    display: flex;
-    align-items: center;
-  }
-
-  .tab-button {
-    background: transparent;
-    border: none;
-    color: var(--Neutral-70, #b4b8bb);
-    padding: 8px 12px; // Adjusted padding for better visual balance
-    cursor: pointer;
-    font-family: var(--font-family);
-    font-size: 14px; // Consistent font size
-    font-weight: 500;
-    border-bottom: 2px solid transparent; // Indicator for active state
-    margin-left: 4px; // Spacing between tab buttons
-    transition: color 0.2s ease-in, border-color 0.2s ease-in;
-
-    &:hover {
-      color: var(--Neutral-90, #e1e2e3);
-    }
-
-    &.active {
-      color: var(--Neutral-90, #e1e2e3);
-      border-bottom-color: var(--Blue-500, #0d9c53); // Using theme's accent color
-    }
-  }
-
-  .tab-content {
-    padding: 15px 25px;
-    flex-grow: 1;
-    overflow-y: auto;
-    color: var(--Neutral-80); // Default text color for tab content, adjust as needed
-  }
+  /* Removed .tabs, .tab-button, and .tab-content styles */
 
   .hidden {
     display: none !important;
@@ -67,7 +34,7 @@
 
   .top {
     display: flex;
-    /* width: calc(100% - 45px); */ /* Commenting out for flexibility */
+    width: calc(100% - 45px); /* Restored width */
     justify-content: space-between;
     align-items: center;
     padding: 12px 20px 12px 25px;
@@ -105,9 +72,7 @@
   }
 
   &:not(.open) {
-    .tabs {
-      display: none; // Hide tabs when panel is closed
-    }
+    /* Removed .tabs display:none from here */
 
     .side-panel-container {
       opacity: 0;

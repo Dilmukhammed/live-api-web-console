@@ -1,0 +1,41 @@
+// Styles for the VerticalTabs component
+
+.vertical-tabs-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh; // Or 100% if preferred and parent context allows
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Center tabs vertically
+  background-color: #f0f0f0; // Placeholder background color
+  padding: 10px 5px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  z-index: 1000; // Ensure it's above most other content
+  box-sizing: border-box; // Include padding and border in the element's total width and height
+}
+
+.vertical-tab-button {
+  background-color: transparent;
+  border: none;
+  color: #333; // Dark gray text
+  padding: 15px 8px; // Generous padding for clickability and vertical appearance
+  margin: 5px 0; // Space between tab buttons
+  cursor: pointer;
+  writing-mode: vertical-rl; // Text flows vertically from right to left
+  transform: rotate(180deg);   // Corrects orientation after writing-mode for standard reading
+  text-orientation: mixed;    // Ensures characters are oriented correctly
+  font-size: 16px;
+  border-radius: 4px; // Slightly rounded corners
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; // Smooth transitions
+
+  &:hover {
+    background-color: #e8e8e8; // Light gray background on hover
+  }
+
+  &.active {
+    background-color: #e0e0e0; // Slightly darker gray for active tab
+    color: #000; // Black text for active tab for emphasis
+    font-weight: bold;
+  }
+}

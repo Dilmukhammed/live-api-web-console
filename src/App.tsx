@@ -20,6 +20,8 @@ import { LiveAPIProvider } from "./contexts/LiveAPIContext";
 import SidePanel from "./components/side-panel/SidePanel";
 import { Altair } from "./components/altair/Altair";
 import ControlTray from "./components/control-tray/ControlTray";
+import VerticalTabs from "./components/vertical-tabs/VerticalTabs"; // Import VerticalTabs
+// import './components/vertical-tabs/VerticalTabs.scss'; // Removed: VerticalTabs.tsx imports its own styles
 import cn from "classnames";
 import { LiveClientOptions } from "./types";
 
@@ -42,6 +44,7 @@ function App() {
   return (
     <div className="App">
       <LiveAPIProvider options={apiOptions}>
+        <VerticalTabs /> {/* Render VerticalTabs here */}
         <div className="streaming-console">
           <SidePanel />
           <main>
