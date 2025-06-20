@@ -8,34 +8,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center; // Center tabs vertically
-  background-color: #f0f0f0; // Placeholder background color
-  padding: 10px 5px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  // background-color: #f0f0f0; // Removed
+  // padding: 10px 5px; // Removed
+  // box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); // Removed
   z-index: 1000; // Ensure it's above most other content
   box-sizing: border-box; // Include padding and border in the element's total width and height
+  // Ensure it does not capture pointer events if it's just a container
+  pointer-events: none;
 }
 
 .vertical-tab-button {
-  background-color: transparent;
+  background-color: #f8f8f8; // Make buttons distinct floating elements
+  box-shadow: -1px 1px 3px rgba(0,0,0,0.15); // Pop-out effect
   border: none;
   color: #333; // Dark gray text
   padding: 15px 8px; // Generous padding for clickability and vertical appearance
-  margin: 5px 0; // Space between tab buttons
+  margin: 10px 0; // Adjusted spacing between tab buttons
   cursor: pointer;
   writing-mode: vertical-rl; // Text flows vertically from right to left
   transform: rotate(180deg);   // Corrects orientation after writing-mode for standard reading
   text-orientation: mixed;    // Ensures characters are oriented correctly
   font-size: 16px;
-  border-radius: 4px; // Slightly rounded corners
+  border-radius: 4px 0 0 4px; // Rounded on left, square on right
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; // Smooth transitions
+  pointer-events: auto; // Buttons themselves should be interactive
 
   &:hover {
-    background-color: #e8e8e8; // Light gray background on hover
+    background-color: #efefef; // Lighter hover state
   }
 
   &.active {
-    background-color: #e0e0e0; // Slightly darker gray for active tab
-    color: #000; // Black text for active tab for emphasis
-    font-weight: bold;
+    background-color: #e0e0e0; // Active tab highlight (current is good)
+    color: #000; // Black text for active tab for emphasis (current is good)
+    font-weight: bold; // (current is good)
+    // Optionally, a slightly stronger shadow or border for active state if needed
+    // box-shadow: -2px 2px 5px rgba(0,0,0,0.2);
   }
 }
